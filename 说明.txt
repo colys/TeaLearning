@@ -1,1 +1,3 @@
 帮你网教学Demo仓库
+
+demo.db是sqlite数据库，开始运行demo之前请先修改web.config中sqlite的路径为你本机的完整路径
