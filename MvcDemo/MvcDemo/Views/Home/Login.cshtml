@@ -3,3 +3,18 @@
 }
 
 <h2>Login</h2>
+
+<div>
+    <form action="GoLogin">
+        <div> @ViewBag.Message</div>
+        <div>
+            
+            @Html.TextBox("Account", "", new { placeholder = "请输入用户名" }) 
+        </div>
+        <div>
+            
+            @Html.TextBox("Password", "", new { placeholder = "请输入密码" }) 
+        </div>
+        <input type="submit" />
+    </form>
+</div>

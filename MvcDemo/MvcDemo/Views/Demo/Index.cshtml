@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <a href="javascript:query()">点我加载...</a>
+    <div id="listDisplay">
+    
+    </div>
+
+    <script language="javascript">
+
+        var pageIndex = 0;
+
+        function query() {            
+            pageIndex++;
+            $(function () {
+                $.ajax({
+                    url: "QueryList?pageIndex=" + pageIndex,
+                    success: function (data) {                        
+                        if (data.length > 0) {
+                            var con = $("#listDisplay");
+                            con.empty();
+                            $(data).each(function () {
+                                con.append("<div> <span>" + this.ID + "</span> <span>" + this.Title + "</span></div>")
+                            })
+                        }
+                        else {
+                            alert("没有更多记录了!");
+                        }
+                    }
+                    , error: function (hx) {
+                        alert("error:"+hx.responseText);
+                    }
+                });
+            })
+        }
+
+        
+    </script>
+</body>
+
+
+</html>
